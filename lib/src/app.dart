@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'ui/homepage.dart';
+import 'resources/app-palette.dart';
 
 class MyCountdownApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -19,11 +20,11 @@ class MyCountdownApp extends StatelessWidget {
         // is not restarted.
         fontFamily: 'Montserrat',
         textTheme: TextTheme(
-          body1: TextStyle( color: Color(0xFFFFFFFF), fontWeight: FontWeight.w300 ),
-          display1: TextStyle( color: Color(0xFFFFFFFF) ),
-          title: TextStyle( fontWeight: FontWeight.w500 )
+          body1: TextStyle( color: Palette.textColor, fontWeight: FontWeight.w300 ),
+          display1: TextStyle( color: Palette.textColor ),
+          title: TextStyle( fontWeight: FontWeight.w500 ),
         ),
-        backgroundColor: Color(0xFF3FB8FF),
+        backgroundColor: Palette.themeColor,
       ),
       home: HomePage(title: 'Welcome to Flutter'),
       debugShowCheckedModeBanner: false,

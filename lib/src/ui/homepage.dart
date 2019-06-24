@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../resources/app-palette.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -19,9 +20,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
-  Color _bgColorStart = Color(0xFF3FB8FF); //Blue
-  Color _bgColorEnd = Color(0xFF94D7FF); //Light-white blue
   
   int _counter = 0;
   String actionText = "Default";
@@ -57,8 +55,8 @@ class _HomePageState extends State<HomePage> {
               end: Alignment.bottomLeft,
               stops: [0.0, 1.0],
               colors: [
-                _bgColorStart,
-                _bgColorEnd
+                Palette.bgGradientStart,
+                Palette.bgGradientEnd
               ]
             )
           ),
@@ -87,7 +85,7 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox( width: 20,)
             ],
-            iconTheme: IconThemeData( size: 30, color: Color(0xFF002D79) ),
+            iconTheme: IconThemeData( size: 30, color: Palette.iconColor ),
             backgroundColor: Colors.transparent,
             elevation: 0.0,
           )
