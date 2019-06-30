@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../resources/app-palette.dart';
+import '../resources/background.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -20,20 +21,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  
-  int _counter = 0;
-  String actionText = "Default";
-
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,15 +37,7 @@ class _HomePageState extends State<HomePage> {
         Container(
           //Background gradient for the app
           decoration: BoxDecoration (
-            gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              stops: [0.0, 1.0],
-              colors: [
-                Palette.bgGradientStart,
-                Palette.bgGradientEnd
-              ]
-            )
+            gradient: Background.gradient
           ),
         ),
         // Transparent appbar
@@ -76,7 +55,7 @@ class _HomePageState extends State<HomePage> {
                 child: InkWell(
                   child: Icon(Icons.menu),
                   onTap: (){
-                    _incrementCounter();
+                    Navigator.pushNamed(context, '/profile');
                   },
                   highlightColor: Color(0xFF5291C2),
                   splashColor: Color(0xFF94D7FF),
@@ -95,7 +74,7 @@ class _HomePageState extends State<HomePage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
             Text(
-                  '$_counter',
+                  'Homepage',
                   style: Theme.of(context).textTheme.display1,
                 ),
             ],

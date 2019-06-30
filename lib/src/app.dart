@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'ui/homepage.dart';
+import 'ui/profile.dart';
 import 'resources/app-palette.dart';
 
 class MyCountdownApp extends StatelessWidget {
@@ -26,8 +27,12 @@ class MyCountdownApp extends StatelessWidget {
         ),
         backgroundColor: Palette.themeColor,
       ),
-      home: HomePage(title: 'Welcome to Flutter'),
       debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: {
+        '/' : (context) => HomePage(),
+        '/profile' : (context) => Profile(),
+      }
     );
   }
 }
