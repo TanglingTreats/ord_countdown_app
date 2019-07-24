@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../resources/background.dart';
 import '../resources/app-palette.dart';
+import '../resources/customcard.dart';
 
 class Profile extends StatefulWidget {
   Profile({Key key, this.title}) : super(key: key);
@@ -14,9 +15,11 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
 
-
   @override
   Widget build(BuildContext context) {
+    
+    Size screenSize = MediaQuery.of(context).size;
+    
     return Scaffold(
       body: Stack (children: <Widget>[
         Container(
@@ -53,14 +56,105 @@ class _ProfileState extends State<Profile> {
           child: Column (
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-            Text(
-                  'This is a profile',
-                  style: Theme.of(context).textTheme.display1,
-                ),
+              _buildDateCard('Enlistment Date', screenSize),
+              _buildDateCard('ORD Date', screenSize),
+              _buildBalanceCard('Leave Balance', screenSize),
+              _buildBalanceCard('Off Balance', screenSize)
             ],
           )
         )
       ]),// This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _buildDateCard(String title, Size screenSize) {
+
+    return CustomCard(
+      screenSize: screenSize, 
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.body2
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: new Container(
+                    margin: const EdgeInsets.only(left: 25, right: 25),
+                    child: Divider(
+                      color: Palette.lineColor,
+                      height: 8,
+                    )
+                  ),
+                ),
+              ],
+            ),
+            Row( 
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Select Date",
+                  style: Theme.of(context).textTheme.body2
+                )
+              ],
+            ),
+          ],
+        ),
+      )
+    );
+  }
+
+  Widget _buildBalanceCard(String title, Size screenSize) {
+    return CustomCard(
+      screenSize: screenSize,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  title,
+                  style: Theme.of(context).textTheme.body2
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                  child: new Container(
+                    margin: const EdgeInsets.only(left: 25, right: 25),
+                    child: Divider(
+                      color: Palette.lineColor,
+                      height: 8,
+                    )
+                  ),
+                ),
+              ],
+            ),
+            Row( 
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  "Set Balance",
+                  style: Theme.of(context).textTheme.body2
+                )
+              ],
+            ),
+          ],
+        ),
+      )
     );
   }
 }

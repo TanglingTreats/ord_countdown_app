@@ -10,5 +10,9 @@ class Palette {
 
   static Color themeColor = Color(0xFF3FB8FF); //Blue
 
-  static Color iconColor = Color(0xFF002D79); //Dark blue
+  static Color iconColor = Color(0xFF002D79); //Dark Blue
+
+  static Color widgetBg = Color(0x403786C0); //Mid shade Blue
+
+  static Color lineColor = Color(0xFFE9F2FD);
 }

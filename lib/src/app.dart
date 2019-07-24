@@ -21,8 +21,9 @@ class MyCountdownApp extends StatelessWidget {
         // is not restarted.
         fontFamily: 'Montserrat',
         textTheme: TextTheme(
-          body1: TextStyle( color: Palette.textColor, fontWeight: FontWeight.w300 ),
-          display1: TextStyle( color: Palette.textColor ),
+          body1: TextStyle( color: Palette.textColor, fontSize: 28, fontWeight: FontWeight.w300, ),
+          body2: TextStyle( color: Palette.textColor, fontSize: 26, fontWeight: FontWeight.w300, ),
+          display1: TextStyle( color: Palette.textColor, fontSize: 65, fontWeight: FontWeight.w500, ),
           title: TextStyle( fontWeight: FontWeight.w500 ),
         ),
         backgroundColor: Palette.themeColor,

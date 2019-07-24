@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../resources/app-palette.dart';
 import '../resources/background.dart';
+import '../resources/customcard.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -30,7 +31,9 @@ class _HomePageState extends State<HomePage> {
     // The Flutter framework has been optimized to make rerunning build methods
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
-    
+    int daysLeft = 50;
+
+    Size screenSize = MediaQuery.of(context).size;
     
     return Scaffold(
       body: Stack (children: <Widget>[
@@ -73,14 +76,77 @@ class _HomePageState extends State<HomePage> {
           child: Column (
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-            Text(
-                  'Homepage',
-                  style: Theme.of(context).textTheme.display1,
-                ),
+              SafeArea(
+                child: Column(
+                  children: <Widget>[
+                    _buildCentralRadial(daysLeft),
+                    _buildBalanceCard(screenSize),
+                    _buildMsgCard(screenSize),
+                  ],
+                )
+              ),
             ],
           )
         )
       ]),// This trailing comma makes auto-formatting nicer for build methods.
+    );
+  }
+
+  Widget _buildCentralRadial(int daysLeft) {
+    return Container(
+      width: 300,
+      height: 300,
+      margin: EdgeInsets.only(top: 30),
+      decoration: BoxDecoration(
+        color: Color(0xFF63B7F7),
+        shape: BoxShape.circle,
+        border: Border.all(
+          width: 5,
+          color: Color(0xFFE9F2FD),
+        ),
+      ),
+      child: Center(
+        child: Text(
+        '$daysLeft%',
+        style: Theme.of(context).textTheme.display1,
+      ),
+      ),
+    );
+  }
+
+  Widget _buildBalanceCard(Size screenSize) {
+    return CustomCard(
+      marginTop: 25,
+      screenSize: screenSize,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Show Balance",
+              style: Theme.of(context).textTheme.body1,
+            )
+          ],
+        )
+      ),
+    );
+  }
+
+  Widget _buildMsgCard(Size screenSize) {
+    return CustomCard(
+      heightDivider: 6,
+      screenSize: screenSize,
+      child: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              "Motivational Message",
+              style: Theme.of(context).textTheme.body1
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
