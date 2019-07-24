@@ -9,7 +9,7 @@ import '../resources/app-palette.dart';
 //This class creates a background widget for displaying information
 class CustomCard extends StatelessWidget{
   CustomCard({@required this.screenSize, @required this.child, 
-            this.marginTop = 15, this.marginBottom = 15, this.widthDivider = 1.25, this.heightDivider = 8});
+            this.marginTop = 15, this.marginBottom = 15, this.widthDivider = 1.15, this.heightDivider = 8});
 
   final double widthDivider;
   final double heightDivider;

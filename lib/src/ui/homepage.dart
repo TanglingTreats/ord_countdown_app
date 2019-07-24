@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
         ),
         Center (
           child: Column (
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: <Widget>[
               SafeArea(
                 child: Column(
@@ -96,7 +96,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       width: 300,
       height: 300,
-      margin: EdgeInsets.only(top: 30),
+      //margin: EdgeInsets.only(top: 30),
       decoration: BoxDecoration(
         color: Color(0xFF63B7F7),
         shape: BoxShape.circle,
@@ -135,6 +135,7 @@ class _HomePageState extends State<HomePage> {
   Widget _buildMsgCard(Size screenSize) {
     return CustomCard(
       heightDivider: 6,
+      marginBottom: 30,
       screenSize: screenSize,
       child: Center(
         child: Column(
